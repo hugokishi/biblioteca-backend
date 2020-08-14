@@ -15,7 +15,7 @@ module.exports = {
     const filteredAuthors = authors.toString().split(',')
       .map((item) => {
         return item;
-    })
+      })
 
 
     const project = await connection('projects').insert({
@@ -26,5 +26,24 @@ module.exports = {
     });
 
     return res.status(200).send(project);
-  }
+  },
+
+  async delete(req, res) {
+    const { id } = req.params;
+
+    const project = await connection('projects')
+      .where('id', id)
+      .select('*')
+      .first();
+
+    if (!project) {
+      return res.send({ error: 'Project not found!' })
+    }
+
+    await connection('projects')
+      .where('id', id)
+      .delete();
+
+    return res.send();
+  },
 }
