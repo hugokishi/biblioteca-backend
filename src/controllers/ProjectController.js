@@ -8,4 +8,23 @@ module.exports = {
     return res.status(200).send(projects);
 
   },
+
+  async store(req, res) {
+    const { title, company, photo, authors } = req.body;
+
+    const filteredAuthors = authors.toString().split(',')
+      .map((item) => {
+        return item;
+    })
+
+
+    const project = await connection('projects').insert({
+      title,
+      company,
+      photo,
+      authors: filteredAuthors
+    });
+
+    return res.status(200).send(project);
+  }
 }

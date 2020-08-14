@@ -4,7 +4,7 @@ exports.up = function(knex) {
     table.increments('id').primary();
     table.string('title').notNullable();
     table.string('company').notNullable();
-    table.string('ptoto').notNullable();
+    table.string('photo').notNullable();
     table.string('authors').notNullable();
   });
 };
