@@ -1,0 +1,18 @@
+{
+  "name": "biblioteca-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/hugokishi/biblioteca-backend.git",
+  "author": "hugokishi <hugopacheco370@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "knex": "^0.21.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "sqlite3": "^5.0.0"
+  }
+}
