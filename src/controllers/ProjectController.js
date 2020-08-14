@@ -46,4 +46,34 @@ module.exports = {
 
     return res.send();
   },
+
+  async updt(req, res) {
+    const { id } = req.params;
+    const { title, company, photo, authors } = req.body;
+
+    const project = await connection('projects')
+      .where('id', id)
+      .select('*')
+      .first();
+
+    if (!project) {
+      return res.send({ error: 'Project not found!' })
+    }
+
+    const filteredAuthors = authors.toString().split(',')
+      .map((item) => {
+        return item;
+      })
+    
+    const projects = await connection('projects')
+      .where('id', id)
+      .update({
+        title,
+        company,
+        photo,
+        authors: filteredAuthors
+      });
+
+    return res.json(projects);
+  }
 }

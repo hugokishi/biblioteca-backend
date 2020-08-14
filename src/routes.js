@@ -5,8 +5,6 @@ routes
   .get('/obras', ProjectController.index)
   .post('/obras', ProjectController.store)
   .delete('/obras/:id', ProjectController.delete)
-
-
-
+  .put('/obras/:id', ProjectController.updt)
 
 module.exports = routes;
