@@ -5,6 +5,10 @@
   "repository": "https://github.com/hugokishi/biblioteca-backend.git",
   "author": "hugokishi <hugopacheco370@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
